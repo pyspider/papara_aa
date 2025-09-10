@@ -1212,7 +1212,7 @@ class my_fact : public ivy_mike::tree_parser_ms::node_data_factory {
 
 class queries {
 public:
-    typedef sequence_model::model<sequence_model::tag_dna4> seq_model;
+    typedef sequence_model::model<sequence_model::tag_aa> seq_model;
     
     void load_fasta( const char *name ) {
         std::ifstream is( name );
@@ -1350,7 +1350,7 @@ private:
 
 class references {
 public:
-    typedef sequence_model::model<sequence_model::tag_dna4> seq_model;
+    typedef sequence_model::model<sequence_model::tag_aa> seq_model;
     
     references( std::shared_ptr<ln_pool> pool, const std::string &tree_name, const std::string &ali_name )
     : pool_(pool), tree_name_(tree_name), ali_name_(ali_name)
@@ -2012,7 +2012,7 @@ int main( int argc, char *argv[] ) {
 
     papara::output_alignment_phylip oa( out_name.c_str() );
 
-    typedef sequence_model::model<sequence_model::tag_dna4> seq_model;
+    typedef sequence_model::model<sequence_model::tag_aa> seq_model;
     
     // collect ref gaps introduiced by qs
     const size_t pad = max_name_len + 1;

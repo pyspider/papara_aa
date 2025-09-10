@@ -13,4 +13,33 @@ The alignment parameters can be modified using the (optional) option -p <user_op
 The output alignment will be written to papara_alignment.default (you can change the file suffix (i.e., "default") by supplying a run-name with parameter '-n'.
 You can invoke the multi threaded version by adding the option '-j <num threads>'. 
 
+## Amino Acid (AA) Sequence Alignment
+
+This repository is configured for amino acid sequence alignment. The sequence models have been modified to use the amino acid alphabet (tag_aa) instead of DNA nucleotides.
+
+### Usage with Amino Acid Sequences
+
+For amino acid alignment, ensure your input files contain protein sequences using the standard 20 amino acid alphabet:
+
+```bash
+# Basic AA alignment
+./papara -t protein_tree.newick -s protein_alignment.phy -q protein_queries.fasta
+
+# AA alignment with specific run name
+./papara -t protein_tree.newick -s protein_alignment.phy -q protein_queries.fasta -n protein_run
+
+# Multi-threaded AA alignment
+./papara -t protein_tree.newick -s protein_alignment.phy -q protein_queries.fasta -j 4
+
+# AA alignment with custom parameters
+./papara -t protein_tree.newick -s protein_alignment.phy -q protein_queries.fasta -p "-3:-1:2:-3"
+```
+
+### Amino Acid Alphabet
+
+The implementation supports the standard 20 amino acids plus ambiguous characters:
+- Standard amino acids: A, R, N, D, C, Q, E, G, H, I, L, K, M, F, P, S, T, W, Y, V
+- Ambiguous characters: B (N or D), Z (Q or E)
+- Gap character: -
+
 The latest source code is available at https://github.com/sim82/papara_nt
