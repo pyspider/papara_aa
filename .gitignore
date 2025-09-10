@@ -3,3 +3,6 @@ test_*/
 papara_log.*
 papara
 build*/
+tmp*/
+tmp_build/
+*.o
